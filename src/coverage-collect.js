@@ -4,7 +4,7 @@ const util = require("util");
 const exec = util.promisify(require("child_process").exec);
 
 (async () => {
-	const entries = await fg(["packages/**/coverage-final.json"], {
+	const entries = await fg(["packages/*/coverage/coverage-final.json"], {
 		dot: true,
 		absolute: true,
 	});

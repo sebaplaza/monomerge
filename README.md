@@ -12,7 +12,7 @@ npm add -D monomerge nyc
 npx monomerge
 ```
 
-This command will find all your `coverage-final.json` files into your `packages/**` folders.
+This command will find all your `coverage-final.json` files into your `packages/*/coverage/` folders.
 
 All these files will be merged into `.nyc_output/coverage.json` file.
 
