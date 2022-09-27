@@ -1,6 +1,6 @@
 {
 	"name": "monomerge",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Merge multiple json coverage files into one, then use nyc to create a merged report. Ideal for monorepos",
 	"bin": {
 		"monomerge": "./src/coverage-collect.js"
