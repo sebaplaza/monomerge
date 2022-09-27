@@ -1,12 +1,18 @@
 {
-  "name": "monomerge",
-  "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+	"name": "monomerge",
+	"version": "0.0.0",
+	"description": "Merge multiple json coverage files into one, then use nyc to create a merged report. Ideal for monorepos",
+	"bin": {
+		"monomerge": "./src/coverage-collect.js"
+	},
+	"keywords": [],
+	"author": "Sebastian Plaza <sebastianplaza@gmail.com>",
+	"license": "ISC",
+	"dependencies": {
+		"fast-glob": "^3.2.12",
+		"fs-extra": "^10.1.0"
+	},
+	"peerDependencies": {
+		"nyc": ">=15"
+	}
 }
