@@ -1,7 +1,7 @@
 const fs = require("fs-extra");
 const fg = require("fast-glob");
-const util = require("util");
-const exec = util.promisify(require("child_process").exec);
+const path = require("path");
+const { execSync } = require("child_process");
 
 (async () => {
 	const entries = await fg(["packages/*/coverage/coverage-final.json"], {
@@ -18,16 +18,19 @@ const exec = util.promisify(require("child_process").exec);
 			"packages/(.*)/coverage/coverage-final.json"
 		);
 		const [, packageName] = rgPackageName.exec(entry);
-		const targetPath = `coverage/${packageName}.json`;
+		const targetPath = path.join(process.cwd(), `coverage/${packageName}.json`);
 		console.log(`copy to: ${targetPath}`);
 		return fs.copyFile(entry, targetPath);
 	});
 	await Promise.all(promises);
 
-	const { stdout, stderr } = await exec(
-		"npx nyc merge coverage .nyc_output/coverage.json"
+	const mergedFileTargetPath = path.join(
+		process.cwd(),
+		`.nyc_output/coverage.json`
 	);
-	console.log(`stdout: ${stdout}`);
+
+	const stdout = execSync(`npx nyc merge coverage ${mergedFileTargetPath}`);
+	console.log(stdout.toString());
 
 	console.log(
 		`now you can generate your reports with: npx nyc report. More info: https://istanbul.js.org/docs/advanced/coverage-object-report/ `
