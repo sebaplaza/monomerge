@@ -32,6 +32,8 @@ const { execSync } = require("child_process");
 	const stdout = execSync(`npx nyc merge coverage ${mergedFileTargetPath}`);
 	console.log(stdout.toString());
 
+	await fs.emptyDir("coverage");
+	console.log(`folder 'coverage' cleaned`);
 	console.log(
 		`now you can generate your reports with: npx nyc report. More info: https://istanbul.js.org/docs/advanced/coverage-object-report/ `
 	);
