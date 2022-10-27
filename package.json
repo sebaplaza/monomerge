@@ -3,7 +3,7 @@
 	"version": "0.1.3",
 	"description": "Merge multiple json coverage files into one, then use nyc to create a merged report. Ideal for monorepos",
 	"bin": {
-		"monomerge": "./src/coverage-collect.js"
+		"monomerge": "./bin/coverage-collect.js"
 	},
 	"keywords": [],
 	"author": "Sebastian Plaza <sebastianplaza@gmail.com>",

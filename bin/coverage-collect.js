@@ -1,3 +1,7 @@
+#!/usr/bin/env node
+
+"use strict";
+
 const fs = require("fs-extra");
 const fg = require("fast-glob");
 const path = require("path");
